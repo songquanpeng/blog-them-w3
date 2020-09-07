@@ -234,3 +234,7 @@ th {
 code {
     font-family: Consolas, 'Courier New', monospace;
 }
+
+.w3-tag {
+    margin-bottom: 8px;
+}

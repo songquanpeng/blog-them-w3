@@ -10,7 +10,7 @@
                         <div class="w3-container">
                             <h3><b><%= page.title !== '' ? page.title : 'No title' %></b></h3>
                             <% page.tag.trim().split(" ").forEach(function (tag) { if(tag !== ""){ %>
-                                <span class="w3-tag w3-deep-orange tag"><a href='/tag/<%= tag %>' style="color: white"><%= tag %></a></span>
+                                <span class="w3-tag w3-red tag"><a href='/tag/<%= tag %>' style="color: white"><%= tag %></a></span>
                             <% }}); %>
                             <span class="w3-tag w3-black tag">
                                 <%= page.author %>
