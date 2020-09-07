@@ -1,15 +1,14 @@
 <%- include('./partials/header') %>
 
-<div class="container article-container raw">
-    <article class="shadow-box" style="padding: 16px">
+<div class="w3-content" style="max-width:960px">
+    <div class="w3-card-4 w3-white" style="margin: 16px 3px;overflow: auto">
         <%- include('./partials/page-info') %>
-        <div style="margin-top: 16px"></div>
-        <div class="raw-content">
+        <div class="w3-container w3-large article-font" style="margin: 16px;">
             <%-page.content%>
             <%- config.copyright %>
             <%- config.ad %>
         </div>
-    </article>
+    </div>
     <%- include('./partials/prev-next') %>
     <%- include('./partials/comment') %>
 </div>

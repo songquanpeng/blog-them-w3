@@ -15,69 +15,73 @@
           })();
         </script>
     <% } else { %>
-        <div class="container article-container" id="comment" style="margin-top: 16px;margin-bottom: 16px">
-            <h3>Comment</h3>
-            <div class="comment">
-                <br>
-                <form action="/api/comment" method="post">
-                    <div class="form-group">
-                        <label class="label">Title</label>
-                        <input type="text" class="form-control" placeholder="Comment title" id="title" name="title">
+        <div class="w3-card-4" style="margin-top: 16px;padding-bottom: 16px">
+            <div class="w3-container w3-black">
+                <h3>Comments</h3>
+            </div>
+            <form action="/api/comment" class="w3-container" method="post">
+                <br/>
+                <label style="margin-top: 16px">Title</label>
+                <input type="text" class="w3-input w3-border" placeholder="Comment title" id="title" name="title">
+                <br/>
+                <label style="margin-top: 16px">Content</label>
+                <textarea type="text" class="w3-input w3-border" placeholder="Comment content" id="content" name="content" required></textarea>
+                <div class="w3-margin-top w3-margin-bottom" style="width: 100%">
+                    <div class="w3-third">
+                        <input class="w3-input w3-border" type="text" id="author" name="author" placeholder="Your name"  required onblur="saveCommentInfo()">
                     </div>
-                    <div class="form-group">
-                        <label class="label">Content</label>
-                        <textarea type="text" class="form-control" placeholder="Comment content" id="content" name="content" required></textarea>
+                    <div class="w3-third">
+                        <input class="w3-input w3-border" type="email" id="email" name="email" placeholder="Your email" onblur="saveCommentInfo()">
                     </div>
-                    <div class="form-row">
-                        <div class="col">
-                            <input class="form-control" type="text" id="author" name="author" placeholder="Your name"  required onblur="saveCommentInfo()">
-                        </div>
-                        <div class="col">
-                            <input class="form-control" type="email" id="email" name="email" placeholder="Your email" onblur="saveCommentInfo()">
-                        </div>
-                        <div class="col">
-                            <input class="form-control" type="url" id="url" name="url" placeholder="Your website" onblur="saveCommentInfo()">
-                        </div>
+                    <div class="w3-third">
+                        <input class="w3-input w3-border" type="url" id="url" name="url" placeholder="Your website" onblur="saveCommentInfo()">
                     </div>
-                    <div style="margin-top: 8px;height: 20px">
-                        <button type="submit" class="btn btn-primary" style="float: right">Submit</button>
-                        <button type="reset" class="btn btn-warning" style="float: right;margin-right: 8px">Reset</button>
-                    </div>
-                    <div style="display: none">
-                        <label for="page_id"></label>
-                        <input type="text" id="page_id" name="page_id" value="<%- page.id %>">
-                    </div>
-                    <script>
-                      document.addEventListener("DOMContentLoaded", function() {
-                        let author = localStorage.getItem("comment-author");
-                        if (!author) author = "";
-                        let email = localStorage.getItem("comment-email");
-                        if (!email) email = "";
-                        let url = localStorage.getItem("comment-url");
-                        if (!url) url = "";
-                        document.getElementById("author").setAttribute("value", author);
-                        document.getElementById("email").setAttribute("value", email);
-                        document.getElementById("url").setAttribute("value", url);
-                      });
+                </div>
+                <br/>
+                <div style="margin: 16px ">
+                    <br>
+                    <button type="submit" class="w3-btn w3-ripple w3-black" style="float: right">Submit</button>
+                    <button type="reset" class="w3-btn w3-ripple w3-black" style="float: right; margin-right: 8px">Reset</button>
+                </div>
+                <div style="display: none">
+                    <label for="page_id"></label>
+                    <input type="text" id="page_id" name="page_id" value="<%- page.id %>">
+                </div>
+                <script>
+                  document.addEventListener("DOMContentLoaded", function() {
+                    let author = localStorage.getItem("comment-author");
+                    if (!author) author = "";
+                    let email = localStorage.getItem("comment-email");
+                    if (!email) email = "";
+                    let url = localStorage.getItem("comment-url");
+                    if (!url) url = "";
+                    document.getElementById("author").setAttribute("value", author);
+                    document.getElementById("email").setAttribute("value", email);
+                    document.getElementById("url").setAttribute("value", url);
+                  });
 
-                      function saveCommentInfo() {
-                        localStorage.setItem("comment-author", document.getElementById("author").value);
-                        localStorage.setItem("comment-email", document.getElementById("email").value);
-                        localStorage.setItem("comment-url", document.getElementById("url").value);
-                      }
-                    </script>
-                </form>
-                <br>
-                <% comments.slice(0, 20).forEach(comment => { %>
-                    <div class="card shadow-box bg-transparent" style="margin-bottom: 16px">
-                        <div class="card-body">
-                            <p class="card-text"><%- comment.content ? comment.content : "No content" %></p>
-                            <span class="card-link"><%= comment.author ? comment.author : "Anonymous" %></span>
-                            <span class="card-link"><time datetime="2016-1-1"><%= comment.post_time %></time></span>
-                        </div>
-                    </div>
-                <% })%>
+                  function saveCommentInfo() {
+                    localStorage.setItem("comment-author", document.getElementById("author").value);
+                    localStorage.setItem("comment-email", document.getElementById("email").value);
+                    localStorage.setItem("comment-url", document.getElementById("url").value);
+                  }
+                </script>
+            </form>
         </div>
-        </div>
+        <% if (comments && comments.length !== 0) { %>
+            <div class="w3-card-4" style="margin-top: 16px; margin-bottom: 16px">
+                <ul class="w3-ul w3-card-4">
+                    <% comments.slice(0, 20).forEach(comment => { %>
+                        <li class="w3-bar">
+                            <div class="w3-bar-item">
+                                <p><%- comment.content ? comment.content : "No content" %></p>
+                                <span class="w3-tag w3-black"><%= comment.author ? comment.author : "Anonymous" %></span>
+                                <span class="w3-tag w3-black"><time datetime="2016-1-1"><%= comment.post_time %></time></span>
+                            </div>
+                        </li>
+                    <% })%>
+                </ul>
+            </div>
+        <% }%>
     <% } %>
 <% } %>

@@ -1,8 +1,8 @@
-# Theme Bootstrap
+# Theme W3
 ## Description
-1. Powered by the Bootstrap CSS framework.
+1. Powered by the W3.css.
 2. Theme for blog system:  https://github.com/songquanpeng/blog
 
 ## Preview
-![index page](https://user-images.githubusercontent.com/39998050/92354433-dd243900-f114-11ea-90ac-9b796f7a065f.png)
-![article page](https://user-images.githubusercontent.com/39998050/92354500-01801580-f115-11ea-84c4-90547aab7d5c.png)
+![image](https://user-images.githubusercontent.com/39998050/92366047-385f2700-f127-11ea-9bc6-66c0e1a7840a.png)
+![image](https://user-images.githubusercontent.com/39998050/92366122-5167d800-f127-11ea-97e9-342bcdaa79f6.png)

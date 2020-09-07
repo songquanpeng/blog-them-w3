@@ -1,12 +1,11 @@
-<h1 class="card-title font-weight-bold"><%-page.title%></h1>
-<div class="info" style="font-size: smaller">
+<div class="w3-container">
+    <h3 class="article-font"><b><%= page.title %></b></h3>
     <span>Tag:
         <% page.tag.trim().split(" ").forEach(function (tag) {if (tag !== "") {%>
-            <span class="badge badge-light badge-hover"><a class="tag is-light" href='/tag/<%= tag %>' style="color: black"><%= tag %></a></span>
+            <span class="w3-opacity w3-tag w3-light-grey tag"><a class="tag is-light" href='/tag/<%= tag %>' style="color: black"><%= tag %></a></span>
         <% }}); %>
     </span>
-    <span>Posted on <span class="badge badge-light badge-hover"><%-page.post_time%></span></span>
-    <span>Edited on <span class="badge badge-light badge-hover"><%-page.edit_time%></span></span>
-    <span>Views: <span class="badge badge-light badge-hover"><%-page.view%></span></span>
-
+    <span>Posted on <span class="w3-opacity w3-tag w3-light-grey tag"><%-page.post_time%></span></span>
+    <span>Edited on <span class="w3-opacity w3-tag w3-light-grey tag"><%-page.edit_time%></span></span>
+    <span>Views: <span class="w3-opacity w3-tag w3-light-grey tag"><%-page.view%></span></span>
 </div>

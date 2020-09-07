@@ -1,25 +1,25 @@
 <%- include('./partials/header') %>
-<div class="container article-container">
-    <article style="padding: 16px">
+<div class="w3-content" style="max-width:960px">
+    <div class="w3-card-4 w3-white" style="margin: 16px 3px;overflow: auto">
         <%- include('./partials/page-info') %>
-    </article>
-    <% if (linkList && linkList.length){ %>
-        <% linkList.forEach((link)=>{ %>
-        <div class="link-card">
-            <%if(link && link.image ===""){
-                if(link.link.endsWith("/")) {
-                    link.image  = link.link + "favicon.ico";
-                }else {
-                    link.image  = link.link + "/favicon.ico";
-                }
-            }%>
-            <a href="<%= link.link %>"><img loading="lazy" class="image" src="<%= link.image %>"  alt="⚠️"/></a>
-            <div class="info">
-                <div class="title"><%= link.title %></div>
-                <div class="description"><%= link.description %></div>
+        <% if (linkList && linkList.length){ %>
+            <% linkList.forEach((link)=>{ %>
+            <div class="link-card">
+                <%if(link && link.image ===""){
+                    if(link.link.endsWith("/")) {
+                        link.image  = link.link + "favicon.ico";
+                    }else {
+                        link.image  = link.link + "/favicon.ico";
+                    }
+                }%>
+                <a href="<%= link.link %>"><img loading="lazy" class="image" src="<%= link.image %>"  alt="⚠️"/></a>
+                <div class="info">
+                    <div class="title"><%= link.title %></div>
+                    <div class="description"><%= link.description %></div>
+                </div>
             </div>
-        </div>
-    <% })} %>
+        <% })} %>
+    </div>
     <%- include('./partials/prev-next') %>
     <%- include('./partials/comment') %>
 </div>
