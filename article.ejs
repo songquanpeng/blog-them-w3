@@ -1,0 +1,15 @@
+<%- include('./partials/header') %>
+
+<div class="container article-container">
+    <article class="shadow-box" style="padding: 16px">
+        <%- include('./partials/page-info') %>
+        <%-page.converted_content%>
+        <% if(config.enableAd){ %>
+            <%- config.ad.articleAd %>
+        <% } %>
+    </article>
+    <%- include('./partials/prev-next') %>
+    <%- include('./partials/comment') %>
+</div>
+
+<%- include('./partials/footer') %>
