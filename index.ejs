@@ -8,7 +8,7 @@
                     <!--Article here-->
                     <div class="w3-card-4 w3-margin w3-white">
                         <div class="w3-container">
-                            <h3><b><%= page.title !== '' ? page.title : 'No title' %></b></h3>
+                            <h3><b><%= page.title ? page.title : 'No title' %></b></h3>
                             <% page.tag.trim().split(" ").forEach(function (tag) { if(tag !== ""){ %>
                                 <span class="w3-tag w3-red tag"><a href='/tag/<%= tag %>' style="color: white"><%= tag %></a></span>
                             <% }}); %>
@@ -22,7 +22,7 @@
                         </div>
                         <div class="w3-container w3-large">
                             <p>
-                                <%= page.description !== undefined && page.description.trim() !== "" ? page.description : "No description" %>
+                                <%= page.description ? page.description : "No description" %>
                             </p>
                             <div class="w3-row">
                                 <div class="w3-row">
