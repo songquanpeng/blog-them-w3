@@ -19,6 +19,9 @@
                                 <a href="/archive/<%= page.post_time.split('-')[0] + '/' + page.post_time.split('-')[1] %>"><%= page.post_time.substring(0, 10) %></a>
                             </span>
                             <span class="w3-tag w3-black tag">Views: <%= page.view %></span>
+                            <% if(page.page_status === 2){%>
+                                <span class="w3-tag w3-amber tag">Stay on Top</span>
+                            <% }%>
                         </div>
                         <div class="w3-container w3-large">
                             <p>
