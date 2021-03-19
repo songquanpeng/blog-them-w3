@@ -22,10 +22,10 @@
             <form action="/api/comment" class="w3-container" method="post">
                 <br/>
                 <label style="margin-top: 16px">Title</label>
-                <input type="text" class="w3-input w3-border" placeholder="Comment title" id="title" name="title">
+                <input type="text" class="w3-input w3-border" placeholder="File title" id="title" name="title">
                 <br/>
                 <label style="margin-top: 16px">Content</label>
-                <textarea type="text" class="w3-input w3-border" placeholder="Comment content" id="content" name="content" required></textarea>
+                <textarea type="text" class="w3-input w3-border" placeholder="File content" id="content" name="content" required></textarea>
                 <div class="w3-margin-top w3-margin-bottom" style="width: 100%">
                     <div class="w3-third">
                         <input class="w3-input w3-border" type="text" id="author" name="author" placeholder="Your name"  required onblur="saveCommentInfo()">
@@ -76,7 +76,7 @@
                             <div class="w3-bar-item">
                                 <p><%- comment.content ? comment.content : "No content" %></p>
                                 <span class="w3-tag w3-black"><%= comment.author ? comment.author : "Anonymous" %></span>
-                                <span class="w3-tag w3-black"><time datetime="2016-1-1"><%= comment.post_time %></time></span>
+                                <span class="w3-tag w3-black"><time datetime="2016-1-1"><%= comment.createdAt %></time></span>
                             </div>
                         </li>
                     <% })%>
