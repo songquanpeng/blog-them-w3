@@ -8,14 +8,17 @@
                     <!--Article here-->
                     <div class="w3-card-4 w3-margin w3-white">
                         <div class="w3-container">
-                            <h3><b><%= page.title ? page.title : 'No title' %></b></h3>
+                            <h3>
+                                <b>
+                                    <a href='/page/<%= page.link %>'>
+                                        <%= page.pageStatus === 2 ? '「置顶」' : '' %><%= page.title ? page.title : '无标题' %>
+                                    </a>
+                                </b>
+                            </h3>
                             <% page.tag.trim().split(";").forEach(function (tag) { if(tag !== ""){ %>
                                 <span class="w3-tag w3-red tag"><a href='/tag/<%= tag %>'
                                                                    style="color: white"><%= tag %></a></span>
                             <% }}); %>
-                            <span class="w3-tag w3-black tag">
-                                <%= page.author %>
-                            </span>
                             <span class="w3-tag w3-black tag">
                                 <a href="/archive/<%= page.createdAt.split('-')[0] + '/' + page.createdAt.split('-')[1] %>"><%= page.createdAt.substring(0, 10) %></a>
                             </span>
@@ -26,20 +29,8 @@
                         </div>
                         <div class="w3-container w3-large">
                             <p>
-                                <%= page.description ? page.description : "No description" %>
+                                <%= page.description ? page.description : "无描述信息" %>
                             </p>
-                            <div class="w3-row">
-                                <div class="w3-row">
-                                    <div class="w3-col m8 s12">
-                                        <p>
-                                            <button class="w3-button w3-padding-large w3-white w3-border"
-                                                    onclick="window.location.href='/page/<%= page.link %>'"><b>READ MORE
-                                                    »</b>
-                                            </button>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                         <hr>
                     </div>
@@ -58,7 +49,6 @@
                         <img src="<%= config.brand_image %>" class="card-img-top" alt="brand_image">
                     <% } %>
                     <p class="card-text">
-                        Memory occupied: <%= (process.memoryUsage().rss / (1024 * 1024)).toFixed(2) %> MB
                     </p>
                 </div>
             </div>
